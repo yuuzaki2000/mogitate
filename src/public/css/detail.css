@@ -1,0 +1,9 @@
+.upper {
+    display: flex;
+}
+
+.profile__upper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
