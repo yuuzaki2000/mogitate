@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
+use App\Models\Season;
 
 
 class ProductController extends Controller
 {
     //s
     public function index(){
-        $product_first = Product::find(1);
-        $product_first->seasons()->sync([3,4]);
-        $product_second = Product::find(2);
-        $product_second->seasons()->sync(1);
         $products = Product::all();
         return view('index', compact('products'));
     }
 
-    public function bind(Product $productId){
-        return view('detail', ['product' => $productId]);
+    public function detail(Request $request){
+        $productId = $request->id;
+        $seasons = Product::find($productId)->seasons;
+        dd($seasons);
+        $product = Product::find($productId);
+        return view('detail', ['product' => $product]);
     }
 
     public function register(){

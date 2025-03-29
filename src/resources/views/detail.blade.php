@@ -26,10 +26,6 @@
                 </div>
                 <div>
                     <p>季節</p>
-                    <input type="radio" name="season" value="spring" checked>春
-                    <input type="radio" name="season" value="summer">夏
-                    <input type="radio" name="season" value="autumn">秋
-                    <input type="radio" name="season" value="winter">冬
                 </div>
             </div>
         </div>

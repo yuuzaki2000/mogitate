@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,4 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/register', [ProductController::class, 'register']);
-Route::get('/products/{productId}', [ProductController::class, 'bind']);
+Route::post('/products/{productId}', [ProductController::class, 'detail']);

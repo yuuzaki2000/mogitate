@@ -21,24 +21,25 @@
             </select>
         </aside>
         <article class="content">
-            <form action="/products" method="get">
             @csrf
                 <div class="container">
                     <ul class="group">
-                            @foreach ($products as $product)
-                            <li class="item">
+                        @foreach ($products as $product)
+                        <form class="item" action="/products/{{$product->id}}" method="post">
+                        @csrf
+                            <li>
                               <img src="{{asset($product->image)}}" alt="はてな">
                               <div class="item__bottom">
                                 <p>{{$product->name}}</p>
                                 <p>{{$product->price}}</p>
                               </div>
-                              <input type="hidden" name="productId" value="{{$product->id}}">
-                              <a href="{{route('product.show', ['product' => $product->id])}}">詳細</a>
+                              <input type="hidden" name="id" value={{$product->id}}>
+                              <button type="submit">詳細</button>
                             </li>
-                            @endforeach
+                        </form>
+                         @endforeach
                     </ul>
                 </div>
-            </form>
         </article>
     </main>
 </body>
