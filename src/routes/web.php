@@ -18,4 +18,6 @@ use App\Models\Product;
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/register', [ProductController::class, 'register']);
+
+Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);
 Route::post('/products/{productId}', [ProductController::class, 'detail']);

@@ -10,21 +10,20 @@ use App\Models\Season;
 
 class ProductController extends Controller
 {
-    //s
+    //
     public function index(){
-        $products = Product::all();
+        $products = Product::paginate(6);
         return view('index', compact('products'));
     }
 
     public function detail(Request $request){
         $productId = $request->id;
-        $seasons = Product::find($productId)->seasons;
-        dd($seasons);
         $product = Product::find($productId);
-        return view('detail', ['product' => $product]);
+        $seasons = $product->seasons;
+        return view('detail', ['product' => $product, 'seasons' => $seasons]);
     }
 
-    public function register(){
+    public function register(Request $request){
         return view('register');
     }
 
@@ -32,5 +31,9 @@ class ProductController extends Controller
         $product = $request->all();
         Product::create($product);
         return redirect('/products');
+    }
+
+    public function destroy(Request $request){
+
     }
 }

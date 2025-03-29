@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{asset("css/index.css")}}">
+    <style>
+        svg.w-5.h-5 {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
-        <p class="logo">商品一覧</p>
+        <p class="header__logo">商品一覧</p>
+        <a class="header__button" href="/products/register">＋商品を追加</a>
     </header>
     <main class="main">
         <aside class="sidebar">
@@ -25,7 +32,7 @@
                 <div class="container">
                     <ul class="group">
                         @foreach ($products as $product)
-                        <form class="item" action="/products/{{$product->id}}" method="post">
+                        <form class="form" action="/products/{{$product->id}}" method="post">
                         @csrf
                             <li>
                               <img src="{{asset($product->image)}}" alt="はてな">
@@ -40,6 +47,7 @@
                          @endforeach
                     </ul>
                 </div>
+                <div class="pagination">{{$products->links()}}</div>
         </article>
     </main>
 </body>

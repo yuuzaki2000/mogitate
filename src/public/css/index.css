@@ -1,15 +1,20 @@
 .header {
     height: 80px;
     background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
 }
 
-.logo {
-    font-size: 40px;
+.header__logo {
+    font-size: 30px;
     color: black;
 }
 
+.header__button {
+}
+
 .main {
-    height: 800px;
+    height: 750px;
     display: flex;
 }
 
@@ -39,14 +44,14 @@
     flex-wrap: wrap;
 }
 
-.item {
+.form {
     list-style: none;
     width: 31%;
     margin-bottom: 20px;
     border: 1px solid black;
 }
 
-.item img {
+.form img {
     width: 100%;
 }
 
@@ -54,5 +59,11 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
+    color: black;
+}
+
+.pagination {
+    width: 400px;
+    margin: 0 auto;
     color: black;
 }
