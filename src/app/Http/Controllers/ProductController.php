@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use App\Models\Season;
+use App\Http\Requests\RegisterRequest;
 
 
 class ProductController extends Controller
@@ -23,17 +24,26 @@ class ProductController extends Controller
         return view('detail', ['product' => $product, 'seasons' => $seasons]);
     }
 
-    public function register(Request $request){
+    public function add(){
         return view('register');
     }
 
-    public function store(Request $request){
-        $product = $request->all();
+    public function store(RegisterRequest $request){
+        $product = $request->only(['name', 'price', 'image', 'description']);
         Product::create($product);
+        $season = $request->only(['seasons']);
+        $product_this = Product::find(Product::latest()->first()->id);
+        $product_this->seasons()->sync($request->seasons);
         return redirect('/products');
     }
 
-    public function destroy(Request $request){
+    public function search(Request $request){
+        $products = Product::where('name', 'like', "%{$request->keyword}%")->paginate(6);
+        return view('index', compact('products'));
 
+    }
+
+    public function destroy(Request $request){
+        //削除（ゴミ箱）ボタンを押したときの処理を記載
     }
 }

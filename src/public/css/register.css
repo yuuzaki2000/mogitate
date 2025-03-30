@@ -1,11 +1,21 @@
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
 .header {
     font-size: 30px;
+    text-align: center;
 }
 
 .required {
     background-color: red;
 }
 
-.title {
-    display: inline;
+.multiple {
+    color: red;
+}
+
+.error-message {
+    color: red;
 }

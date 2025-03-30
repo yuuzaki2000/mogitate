@@ -17,7 +17,9 @@ use App\Models\Product;
 */
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/register', [ProductController::class, 'register']);
+Route::get('/products/register', [ProductController::class, 'add']);
+Route::post('/products/register', [ProductController::class, 'store']);
+Route::post('/products/search', [ProductController::class, 'search']);
 
-Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);
 Route::post('/products/{productId}', [ProductController::class, 'detail']);
+Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);

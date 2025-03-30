@@ -20,12 +20,15 @@
     </header>
     <main class="main">
         <aside class="sidebar">
-            <input type="text">
-            <button>検索</button>
+          <form action="/products/search" method="post">
+          @csrf
+          <input type="text" name="keyword">
+            <button type="submit">検索</button>
             <p>価格順で表示</p>
             <select name="">
                 <option value="">高い順に表示</option>
             </select>
+          </form>
         </aside>
         <article class="content">
             @csrf
