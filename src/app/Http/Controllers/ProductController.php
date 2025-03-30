@@ -37,6 +37,8 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
+    public function update()
+
     public function search(Request $request){
         $products = Product::where('name', 'like', "%{$request->keyword}%")->paginate(6);
         return view('index', compact('products'));
