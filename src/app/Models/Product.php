@@ -21,4 +21,16 @@ class Product extends Model
             $query->where('name', 'like', '%' . $keyword . '%');
         }
     }
+
+    public function scopeOrderByColumnDesc($query, $column){
+        if(!empty($column)){
+            $query->orderBy($column, 'desc');
+        }
+    }
+
+    public function scopeOrderByColumnAsc($query, $column){
+        if(!empty($column)){
+            $query->orderBy($column, 'asc');
+        }
+    }
 }

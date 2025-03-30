@@ -22,12 +22,19 @@
         <aside class="sidebar">
           <form action="/products/search" method="post">
           @csrf
-          <input type="text" name="keyword">
+            <input type="text" name="keyword">
             <button type="submit">検索</button>
+          </form>
+          <form action="/products" method="post">
+          @csrf
             <p>価格順で表示</p>
-            <select name="">
-                <option value="">高い順に表示</option>
+            <select name="order">
+                <option value="">価格で並び替え</option>
+                <option value="1">高い順に表示</option>
+                <option value="2">低い順に表示</option>
             </select>
+            <button type="submit">決定</button>
+            <button name="order" value="0">×</button>
           </form>
         </aside>
         <article class="content">
@@ -35,6 +42,7 @@
                 <div class="container">
                     <ul class="group">
                         @foreach ($products as $product)
+                        <input type="hidden" name="id" value="{{$product->id}}">
                         <form class="form" action="/products/{{$product->id}}" method="post">
                         @csrf
                             <li>
@@ -50,7 +58,7 @@
                          @endforeach
                     </ul>
                 </div>
-                <div class="pagination">{{$products->links()}}</div>
+                {{--  <div class="pagination">{{$products->links()}}</div>   --}}
         </article>
     </main>
 </body>

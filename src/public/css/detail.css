@@ -40,6 +40,16 @@
     background-color: gray;
 }
 
+.delete-button {
+    display: block;
+    width: 50px;
+    margin: 0 auto;
+}
+
 .trash {
     width: 10px;
+}
+
+.error-message {
+    color: red;
 }

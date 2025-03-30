@@ -13,7 +13,19 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        $products = Product::paginate(6);
+        $products = Product::all();
+        return view('index', compact('products'));
+    }
+
+    public function show(Request $request){
+        if($request->order == 1){
+            $products = Product::orderByColumnDesc('price')->get();
+        }else if($request->order == 2){
+            $products = Product::orderByColumnAsc('price')->get();
+        }else{
+            /* $products = Product::paginate(6); */
+            $products = Product::all();
+        }
         return view('index', compact('products'));
     }
 
@@ -37,7 +49,11 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    public function update()
+    public function update(RegisterRequest $request){
+        $form = $request->all();
+        Product::find($request->id)->update($form);
+        return redirect('/products');
+    }
 
     public function search(Request $request){
         $products = Product::where('name', 'like', "%{$request->keyword}%")->paginate(6);
@@ -47,5 +63,8 @@ class ProductController extends Controller
 
     public function destroy(Request $request){
         //削除（ゴミ箱）ボタンを押したときの処理を記載
+        $product = Product::find($request->id);
+        $product->delete();
+        return redirect('/products');
     }
 }
