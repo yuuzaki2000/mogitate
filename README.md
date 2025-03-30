@@ -21,7 +21,8 @@ DB_PASSWORD=laravel_pass
 ・Laravel 8.83.29
 ・MySQL  8.0.26
 ・nginx  1.21.1
-##ER図
+##ER図![mogitate](https://github.com/user-attachments/assets/4e5a0f2b-b90c-4a43-a41d-5d4590e37df4)
+
 
 
 ## URL
