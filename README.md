@@ -31,3 +31,4 @@ DB_PASSWORD=laravel_pass
 # mogitate_revised
 # mogitate_revised
 # mogitate_revised
+# sintoku
