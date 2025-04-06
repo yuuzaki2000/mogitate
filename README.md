@@ -30,3 +30,4 @@ DB_PASSWORD=laravel_pass
   phpMyAdmin : http://localhost:8080/
 # mogitate_revised
 # mogitate_revised
+# mogitate_revised
