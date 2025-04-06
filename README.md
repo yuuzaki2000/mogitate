@@ -28,3 +28,4 @@ DB_PASSWORD=laravel_pass
 ## URL
   開発環境： http://localhost/products/
   phpMyAdmin : http://localhost:8080/
+# mogitate_revised
